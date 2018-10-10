@@ -27,9 +27,9 @@ RUN INSTALL_PKGS="bc bind-utils bsdtar ceph-common createrepo device-mapper devi
     git config --system user.email origin-release@redhat.com
 
 
-ADD golang-v1.10.0-1.fc25.noarch.rpm /tmp/origin-rpm/
-RUN yum install -y /tmp/origin-rpm/*.rpm && \
-    yum clean all 
+ADD golang-v1.9.0-1.fc25.noarch.rpm /tmp/origin-rpm/
+RUN dnf install -y /tmp/origin-rpm/*.rpm && \
+    dnf clean all 
 #Download go for amd64 unless other archs are detected
 RUN case "$(uname -m)" in \
         ppc64le) GOARCH='ppc64le';; \
