@@ -1,0 +1,5 @@
+[test3.10]
+name=Custom Repository
+baseurl=file:///tmp/okdrpms/
+enabled=1
+gpgcheck=0

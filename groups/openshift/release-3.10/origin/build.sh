@@ -2,6 +2,7 @@
 #pull repo in /tmp
 rm -rf /tmp/origin
 rm -rf /tmp/openshift
+export arch=$(uname -m)
 source repo.txt
 #build origin base
 git clone $REPO /tmp/origin
@@ -10,7 +11,7 @@ pwd
 git checkout $BRANCH
 popd
 pwd
-export OS_BUILD_ENV_IMAGE=fedora-origin-release:golang-1.10
+export OS_BUILD_ENV_IMAGE=docker.io/jeffdyoung/f28-origin-release:golang-1.10-$arch
 cp -f hack/build-rpms.sh /tmp/origin/hack/build-rpms.sh
 #copy fedora dockerfiles
 cp -f images/base/Dockerfile /tmp/origin/images/base/Dockerfile
