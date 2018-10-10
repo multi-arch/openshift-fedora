@@ -18,19 +18,19 @@ ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 #needed for goversioninfo
 COPY cbs-paas7-openshift-multiarch-el7-build.repo /etc/yum.repos.d/
 #remove sysvinit-tools?
-RUN yum -y update
+RUN dnf -y update
 RUN INSTALL_PKGS="bc bind-utils bsdtar ceph-common createrepo device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glibc-static glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel libvirt-devel lsof make mercurial nmap-ncat openssl protobuf-compiler rsync socat tar tito tree util-linux wget which xfsprogs zip goversioninfo" && \
-    yum install -y $INSTALL_PKGS && \
+    dnf install -y $INSTALL_PKGS && \
 #    rpm -V $INSTALL_PKGS && \
-    yum clean all && \
+    dnf clean all && \
     touch /os-build-image && \
     git config --system user.name origin-release-container && \
     git config --system user.email origin-release@redhat.com
 
 
 ADD golang-v1.10.0-1.fc25.noarch.rpm /tmp/origin-rpm/
-RUN yum install -y /tmp/origin-rpm/*.rpm && \
-    yum clean all 
+RUN dnf install -y /tmp/origin-rpm/*.rpm && \
+    dnf clean all 
 #Download go for amd64 unless other archs are detected
 RUN case "$(uname -m)" in \
         ppc64le) GOARCH='ppc64le';; \

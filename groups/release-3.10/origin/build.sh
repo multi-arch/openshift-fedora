@@ -32,5 +32,5 @@ cp -f images/source/Dockerfile /tmp/origin/images/source/Dockerfile
 cp -f images/template-service-broker/Dockerfile /tmp/origin/images/template-service-broker/Dockerfile
 cp -f images/tests/Dockerfile /tmp/origin/images/tests/Dockerfile
 cd /tmp/origin
-hack/build-base-images.sh
+hack/env hack/build-base-images.sh
 hack/env make release
