@@ -1,0 +1,26 @@
+FROM openshift/origin-control-plane
+
+COPY scripts/* /usr/local/bin/
+COPY system-container/system-container-wrapper.sh /usr/local/bin/
+COPY system-container/manifest.json system-container/config.json.template system-container/service.template system-container/tmpfiles.template /exports/
+
+RUN INSTALL_PKGS=" \
+      origin-hyperkube origin-node origin-sdn-ovs \
+      socat ethtool device-mapper iptables nmap-ncat e2fsprogs \
+      xfsprogs device-mapper-persistent-data ceph-common \
+      libmnl libnetfilter_conntrack conntrack-tools \
+      libnfnetlink iproute bridge-utils procps-ng openssl \
+      binutils xz kmod-libs kmod device-mapper-libs dbus \
+      iscsi-initiator-utils \
+      " && \
+    dnf --enablerepo=origin-local-release install -y $INSTALL_PKGS && \
+    dnf clean all
+
+LABEL io.k8s.display-name="OpenShift Node" \
+      io.k8s.description="This is a component of OpenShift and contains the software for individual nodes when using SDN." \
+      io.openshift.tags="openshift,node"
+
+ENV OPENSHIFT_CONTAINERIZED=true \
+    KUBECONFIG=/etc/origin/node/node.kubeconfig
+
+ENTRYPOINT [ "/usr/local/bin/origin-node-run.sh" ]
