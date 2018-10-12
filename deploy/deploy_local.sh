@@ -6,6 +6,4 @@ pushd /tmp/openshift-ansible
 git checkout release-3.10
 popd
 
-cp hosts.localtest /tmp/openshift-ansbile
 pushd /tmp/openshift-ansible
-ansible-playbook -i /tmp/openshift-ansible/hosts.localtest 

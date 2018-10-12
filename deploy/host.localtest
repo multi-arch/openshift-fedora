@@ -4,34 +4,36 @@ nodes
 etcd
 
 [OSEv3:vars]
+# if your target hosts are Fedora uncomment this
+ansible_python_interpreter=/usr/bin/python3
 openshift_deployment_type='origin'
 
 openshift_portal_net=172.30.0.0/16
 
 ansible_user=root
 
-openshift_disable_check=package_version,disk_availability,docker_storage,memory_availability
-
+openshift_disable_check=docker_image_availability,package_version,disk_availability,docker_storage,memory_availability
 
 openshift_enable_origin_repo=false
+openshift_ansible_allow_disabled_selinux=true
 openshift_repos_enable_testing=true
 
-oreg_url='test/f28-${component}:${version}'
-openshift_cockpit_deployer_prefix='test/f28-'
+oreg_url='test/f28-origin-${component}:${version}'
+openshift_cockpit_deployer_prefix='test/f28-origin-'
 openshift_cockpit_deployer_version='v3.10'
-openshift_service_catalog_image_prefix='test/f28-'
-ansible_service_broker_image_prefix='test/f28-'
-template_service_broker_prefix='test/f28-'
-openshift_web_console_prefix='test/f28-'
+openshift_service_catalog_image_prefix='test/f28-origin-'
+ansible_service_broker_image_prefix='test/f28-origin-'
+template_service_broker_prefix='test/f28-origin-'
+openshift_web_console_prefix='test/f28-origin-'
 
 
 openshift_master_identity_providers=[{'name': 'allow_all', 'login': 'true', 'challenge': 'true', 'kind': 'AllowAllPasswordIdentityProvider'}]
 openshift_auth_type=allowall
 
 
-openshift_release=v3.10 
+openshift_release=3.10 
 debug_level=5
-openshift_image_tag=v3.10
+#openshift_image_tag=v3.10
 
 #openshift_use_openvswitch_system_container=True
 #openshift_use_node_system_container=True
@@ -45,8 +47,8 @@ openshift_image_tag=v3.10
 
 
 #use crio not docker
-openshift_use_crio=true
-openshift_crio_enable_docker_gc=true
+#openshift_use_crio=true
+#openshift_crio_enable_docker_gc=true
 
 [masters]
 localhost ansible_connection=local

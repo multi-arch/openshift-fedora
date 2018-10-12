@@ -1,0 +1,23 @@
+#!/bin/bash
+export arch=$(uname -m) 
+docker push docker.io/jeffdyoung/f28-origin-web-console:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-docker-registry:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-node:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-docker-builder:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-haproxy-router:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-deployer:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-f5-router:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-recycler:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-tests:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-control-plane:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-egress-http-proxy:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-egress-dns-proxy:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-keepalived-ipfailover:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-hypershift:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-cli:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-egress-router:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-hyperkube:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-template-service-broker:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-pod:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-base:v3.10-$arch
+docker push docker.io/jeffdyoung/f28-origin-source:v3.10-$arch
