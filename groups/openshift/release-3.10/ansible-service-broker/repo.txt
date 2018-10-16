@@ -1,0 +1,2 @@
+export BRANCH=release-1.2
+export REPO=https://github.com/openshift/ansible-service-broker.git

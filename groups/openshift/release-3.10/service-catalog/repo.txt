@@ -1,0 +1,2 @@
+export BRANCH=release-3.10
+export REPO=https://github.com/openshift/service-catalog.git
