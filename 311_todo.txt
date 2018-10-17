@@ -1,0 +1,63 @@
+#list of repos for 3.11
+#https://github.com/cockpituous/cockpit
+docker.io/cockpit/kubernetes                                    latest
+
+#https://github.com/openshift/origin
+docker.io/openshift/origin-node                                 v3.11
+docker.io/openshift/origin-control-plane                        v3.11
+docker.io/openshift/origin-docker-builder                       v3.11.0
+docker.io/openshift/origin-haproxy-router                       v3.11
+docker.io/openshift/origin-deployer                             v3.11.0
+docker.io/openshift/origin-template-service-broker              v3.11
+docker.io/openshift/origin-pod                                  v3.11
+
+#https://github.com/openshift/service-catalog.git
+docker.io/openshift/origin-service-catalog                      v3.11
+
+#https://github.com/openshift/console
+docker.io/openshift/origin-console                              v3.11
+
+#web console
+docker.io/openshift/origin-web-console                          v3.11
+
+#image-registry
+docker.io/openshift/origin-docker-registry                      v3.11
+
+
+#https://github.com/openshift/cluster-monitoring-operator
+quay.io/coreos/cluster-monitoring-operator                      v0.1.1
+
+#https://github.com/openshift/ansible-service-broker
+docker.io/ansibleplaybookbundle/origin-ansible-service-broker   latest 
+
+#https://github.com/coreos/prometheus-operator/tree/v0.23.2
+quay.io/coreos/prometheus-config-reloader                       v0.23.2
+quay.io/coreos/prometheus-operator                              v0.23.2
+
+#https://github.com/openshift/prometheus-alertmanager
+docker.io/openshift/prometheus-alertmanager                     v0.15.2
+
+#https://github.com/openshift/node_exporter
+docker.io/openshift/prometheus-node-exporter                    v0.16.0
+
+#https://github.com/openshift/prometheus
+docker.io/openshift/prometheus                                  v2.3.2
+
+#https://github.com/grafana/grafana
+#https://github.com/openshift/grafana
+docker.io/grafana/grafana                                       5.2.1
+
+#https://github.com/brancz/kube-rbac-proxy
+quay.io/coreos/kube-rbac-proxy                                  v0.3.1
+
+#https://github.com/coreos/etcd
+quay.io/coreos/etcd                                             v3.2.22
+
+#https://github.com/kubernetes/kube-state-metrics
+quay.io/coreos/kube-state-metrics                               v1.3.1
+
+#https://github.com/openshift/oauth-proxy
+docker.io/openshift/oauth-proxy                                 v1.1.0
+
+#https://github.com/jimmidyson/configmap-reload
+quay.io/coreos/configmap-reload                                 v0.0.1

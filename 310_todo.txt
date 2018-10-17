@@ -1,0 +1,23 @@
+##https://github.com/openshift/service-catalog.git
+docker.io/openshift/origin-service-catalog                      v3.10
+
+#https://github.com/cockpituous/cockpit
+docker.io/cockpit/kubernetes                                    latest
+
+#https://github.com/openshift/ansible-service-broker
+docker.io/ansibleplaybookbundle/origin-ansible-service-broker   latest
+
+#https://github.com/coreos/etcd
+quay.io/coreos/etcd                                             v3.2.22
+
+
+#done
+docker.io/openshift/origin-web-console                          v3.10
+docker.io/openshift/origin-docker-registry                      v3.10
+docker.io/openshift/origin-node                                 v3.10
+docker.io/openshift/origin-haproxy-router                       v3.10
+docker.io/openshift/origin-deployer                             v3.10.0
+docker.io/openshift/origin-template-service-broker              v3.10
+docker.io/openshift/origin-pod                                  v3.10.0
+docker.io/openshift/origin-control-plane                        v3.10
+ 
