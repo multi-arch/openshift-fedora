@@ -2,6 +2,7 @@
 #pull repo in /tmp
 rm -rf /tmp/origin-release
 rm -rf /tmp/openshift
+docker volume prune -f
 source repo.txt
 export arch=$(uname -m)
 #build golang 1.10

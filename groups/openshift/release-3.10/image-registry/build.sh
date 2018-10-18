@@ -2,6 +2,7 @@
 #pull repo in /tmp
 rm -rf /tmp/image-registry
 rm -rf /tmp/openshift
+docker volume prune -f
 source repo.txt
 export arch=$(uname -m)
 #build image-registry

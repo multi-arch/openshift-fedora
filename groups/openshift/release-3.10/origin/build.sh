@@ -2,6 +2,7 @@
 #pull repo in /tmp
 rm -rf /tmp/origin
 rm -rf /tmp/openshift
+docker volume prune -f
 export arch=$(uname -m)
 source repo.txt
 #build origin base
