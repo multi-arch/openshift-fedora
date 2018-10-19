@@ -10,7 +10,8 @@ for i in  $(docker images | grep -v latest | grep -i origin | grep -v origin-rel
 	imageid=`echo $i | awk '{ print $3}'`
 	docker tag $imageid $newname":v3.10-"$arch 
 	#echo $testname":v3.10" 
-	docker tag $imageid $testname":v3.10" 
+	docker tag $imageid $newname":v3.10" 
+	docker tag $imageid $newname":v3.10.0" 
 done
 #undo \n hack
 IFS=$saveIFS
