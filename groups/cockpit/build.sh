@@ -1,18 +1,22 @@
 #!/bin/bash
+
+export arch=$(uname -m)
+export WORKINGDIR_COCKPIT=${WORKINGDIR_COCKPIT:-/tmp/cockpit}
+export BRANCH=${BRANCH:-master}
+export REPO=${REPO:-https://github.com/cockpit-project/cockpit.git}
+
 #pull repo in /tmp
 docker volume prune -f
-rm -rf /tmp/cockpit
-source repo.txt
-export arch=$(uname -m)
+rm -rf $WORKINGDIR_COCKPIT
 #build service-catalog
 
-git clone $REPO /tmp/cockpit
-pushd /tmp/cockpit
+git clone $REPO $WORKINGDIR_COCKPIT
+pushd $WORKINGDIR_COCKPIT
 pwd
 git checkout $BRANCH
 popd
 
 pwd
-cp -f containers/kubernetes/Dockerfile /tmp/cockpit/containers/kubernetes/Dockerfile
-cd /tmp/cockpit/containers/kubernetes
-docker build -t kubernetes/cockpit -f Dockerfile .
+cp -f containers/kubernetes/Dockerfile $WORKINGDIR_COCKPIT/containers/kubernetes/Dockerfile
+cd $WORKINGDIR_COCKPIT/containers/kubernetes
+docker build -t docker.io/jeffdyoung/cockpit:$arch -f Dockerfile .
