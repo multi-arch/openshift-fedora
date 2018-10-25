@@ -1,0 +1,13 @@
+#Sometimes beaker machines are provisioned with enough disk, but don't have all of it allocated
+# Create an lv with the remaining freespace
+lvcreate -l 100%FREE -n dockerthings <volumegroup with space>
+#give the new lv a file system
+mkfs.xfs /dev/mapper/fedora_ibm--p9b--08-dockerthings 
+#add something like this to /etc/fstab
+/dev/mapper/fedora_ibm--p9b--08-dockerthings /var/lib/docker xfs defaults 0   0
+#create docker path
+mkdir /var/lib/docker
+#mount new lv
+mount -a
+
+#install docker
