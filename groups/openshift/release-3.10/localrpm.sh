@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+dnf install createrepo -y
 export arch=$(uname -m)
 rm -rf /tmp/okdrpms
 mkdir -p /tmp/okdrpms/$arch

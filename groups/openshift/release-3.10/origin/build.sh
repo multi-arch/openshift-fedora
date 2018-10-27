@@ -7,7 +7,7 @@ export WORKINGDIR_ORIGIN=${WORKINGDIR_ORIGIN:-/tmp/origin}
 export OS_BUILD_ENV_IMAGE=${OS_BUILD_ENV_IMAGE:-docker.io/jeffdyoung/f28-origin-release:golang-1.10-$arch}
 export BRANCH=${BRANCH:-release-3.10}
 export REPO=${REPO:-https://github.com/openshift/origin.git}
-
+export PREFIX=${PREFIX:-docker.io/jeffdyoung/f28-}
 #clean repo location /tmp/openshift and prune docker
 rm -rf $WORKINGDIR_ORIGIN
 rm -rf /tmp/openshift
@@ -40,6 +40,10 @@ cp -f images/router/f5/Dockerfile $WORKINGDIR_ORIGIN/images/router/f5/Dockerfile
 cp -f images/source/Dockerfile $WORKINGDIR_ORIGIN/images/source/Dockerfile
 cp -f images/template-service-broker/Dockerfile $WORKINGDIR_ORIGIN/images/template-service-broker/Dockerfile
 cp -f images/tests/Dockerfile $WORKINGDIR_ORIGIN/images/tests/Dockerfile
-cd $WORKINGDIR_ORIGIN
+pushd $WORKINGDIR_ORIGIN
 hack/env hack/build-base-images.sh
 hack/env make release
+
+
+#rename containers
+popd

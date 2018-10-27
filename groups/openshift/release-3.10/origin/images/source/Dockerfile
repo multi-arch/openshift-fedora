@@ -6,6 +6,4 @@
 # The standard name for this image is openshift/origin-source
 #
 FROM fedora:28
-RUN dnf -y update &&\
-    dnf clean all
 COPY *.repo /etc/yum.repos.d/

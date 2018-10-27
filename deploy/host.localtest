@@ -18,29 +18,27 @@ openshift_enable_origin_repo=false
 openshift_ansible_allow_disabled_selinux=true
 openshift_repos_enable_testing=true
 
-oreg_url='test/f28-origin-${component}:${version}'
-openshift_cockpit_deployer_prefix='test/f28-origin-'
-openshift_cockpit_deployer_version='v3.10'
-openshift_service_catalog_image_prefix='test/f28-origin-'
-ansible_service_broker_image_prefix='test/f28-origin-'
-template_service_broker_prefix='test/f28-origin-'
-openshift_web_console_prefix='test/f28-origin-'
-
+oreg_url='test/fedora-origin-${component}:${version}'
+openshift_cockpit_deployer_prefix='test/fedora-origin-'
+openshift_cockpit_deployer_version='v3.10.0'
+openshift_service_catalog_image_prefix='test/fedora-origin-'
+ansible_service_broker_image_prefix='test/fedora-origin-'
+template_service_broker_prefix='test/fedora-origin-'
+openshift_web_console_prefix='test/fedora-origin-'
+osm_etcd_image='test/fedora-origin-etcd:v3.10.0'
 
 openshift_master_identity_providers=[{'name': 'allow_all', 'login': 'true', 'challenge': 'true', 'kind': 'AllowAllPasswordIdentityProvider'}]
 openshift_auth_type=allowall
 
 
-openshift_release=3.10 
+openshift_release=3.10.0
 debug_level=5
-#openshift_image_tag=v3.10
+openshift_image_tag=v3.10.0
 
-#openshift_use_openvswitch_system_container=True
-#openshift_use_node_system_container=True
-#openshift_use_master_system_container=True
+#fedora-openshift does not have asb containers
+ansible_service_broker_install=false
 
 
-#for 3.10 we need to manually install TSB and service catalog after the fact.
 #openshift_install_examples=false
 #openshift_enable_service_catalog=false
 #template_service_broker_install=False

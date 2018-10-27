@@ -19,4 +19,4 @@ popd
 pwd
 cp -f containers/kubernetes/Dockerfile $WORKINGDIR_COCKPIT/containers/kubernetes/Dockerfile
 cd $WORKINGDIR_COCKPIT/containers/kubernetes
-docker build -t docker.io/jeffdyoung/cockpit:$arch -f Dockerfile .
+docker build -t openshift/origin-cockpit:latest -f Dockerfile .
