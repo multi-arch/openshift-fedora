@@ -3,7 +3,12 @@
 #create a local fedora:28 w/latest updates
 
 pushd groups/fedorabase/
-./build.sh 
+./build_f28.sh 
+popd
+
+
+pushd groups/origin-release/
+./build.sh
 popd
 
 pushd groups/openshift/release-3.10/origin
@@ -73,7 +78,6 @@ do
 	echo $container
 	export image_id=`docker images $container -q`
 	NEWNAME=(`echo ${container} | sed 's/openshift\///g' | sed 's/\:latest//g'`)
-	docker tag $container  $TESTPREFIX$NEWNAME:v3.10
         docker tag $container  $TESTPREFIX$NEWNAME:v3.10.0
         docker tag $container  $PUSHPREFIX$NEWNAME:v3.10.0.$arch
 	
