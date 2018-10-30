@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf install libsemanage-python3 -y
+dnf install python3-devel python-devel libffi-devel libsemanage-python3 -y
 
 rm -rf /tmp/openshift-ansible
 git clone https://github.com/openshift/openshift-ansible.git /tmp/openshift-ansible
