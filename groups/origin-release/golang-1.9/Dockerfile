@@ -16,9 +16,9 @@ ENV VERSION=1.9.7 \
     GOROOT=/usr/local/go
 ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 #needed for goversioninfo
-COPY cbs-paas7-openshift-multiarch-el7-build.repo /etc/yum.repos.d/
+#COPY cbs-paas7-openshift-multiarch-el7-build.repo /etc/yum.repos.d/
 #remove sysvinit-tools?
-RUN INSTALL_PKGS="bc bind-utils bsdtar ceph-common createrepo device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glibc-static glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel libvirt-devel lsof make mercurial nmap-ncat openssl protobuf-compiler rsync socat tar tito tree util-linux wget which xfsprogs zip goversioninfo" && \
+RUN INSTALL_PKGS="bc bind-utils bsdtar ceph-common createrepo device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glibc-static glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel libvirt-devel lsof make mercurial nmap-ncat openssl protobuf-compiler rsync socat tar tito tree util-linux wget which xfsprogs zip " && \
     dnf install -y $INSTALL_PKGS && \
 #    rpm -V $INSTALL_PKGS && \
     dnf clean all && \
