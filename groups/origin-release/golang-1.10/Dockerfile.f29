@@ -19,7 +19,7 @@ ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 #COPY cbs-paas7-openshift-multiarch-el7-build.repo /etc/yum.repos.d/
 #remove sysvinit-tools?
-RUN INSTALL_PKGS="libbsd-devel kernel-headers kernel-devel glibc-headers glibc zlib gcc-s390x-linux-gnu bc bind-utils bsdtar ceph-common createrepo device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glibc-static glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel libvirt-devel lsof make mercurial nmap-ncat openssl protobuf-compiler rsync socat tar tito tree util-linux wget which xfsprogs zip " && \
+RUN INSTALL_PKGS="glibc-devel libbsd-devel kernel-headers kernel-devel glibc-headers glibc zlib gcc-s390x-linux-gnu bc bind-utils bsdtar ceph-common createrepo device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glibc-static glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel libvirt-devel lsof make mercurial nmap-ncat openssl protobuf-compiler rsync socat tar tito tree util-linux wget which xfsprogs zip " && \
     dnf install -y $INSTALL_PKGS && \
 #    rpm -V $INSTALL_PKGS && \
     dnf clean all && \
@@ -41,7 +41,8 @@ RUN case "$(uname -m)" in \
     curl https://storage.googleapis.com/golang/go$VERSION.linux-$GOARCH.tar.gz | tar -C /usr/local -xzf -; \
     go version
 
-RUN go get golang.org/x/tools/cmd/cover \
+RUN CGO_CFLAGS="$(go env | grep CGO_CFLAGS | grep -o '\".*\"' | sed 's/"//g') -I/usr/include" \
+        go get golang.org/x/tools/cmd/cover \
         golang.org/x/tools/cmd/goimports \
         github.com/tools/godep \
         golang.org/x/lint/golint \
