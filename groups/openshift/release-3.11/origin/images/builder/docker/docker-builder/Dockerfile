@@ -1,4 +1,4 @@
-FROM openshift/origin-control-plane
+FROM openshift/origin-cli
 
 RUN INSTALL_PKGS=" \
       which tar wget hostname  util-linux \

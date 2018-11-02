@@ -36,11 +36,10 @@ fi
 
 os::build::rpm::get_nvra_vars
 
-export OS_RPM_SPECFILE="$( find "${OS_ROOT}" -name *.spec )"
+OS_RPM_SPECFILE="$( find "${OS_ROOT}" -name *.spec )"
 set +o pipefail
-export OS_RPM_NAME="$( rpmspec -q --qf '%{name}\n' "${OS_RPM_SPECFILE}" | head -1 )"
+OS_RPM_NAME="$( rpmspec -q --qf '%{name}\n' "${OS_RPM_SPECFILE}" | head -1 )"
 set -o pipefail
-
 os::log::info "Building release RPMs for ${OS_RPM_SPECFILE} ..."
 
 rpm_tmp_dir="${BASETMPDIR}/rpm"

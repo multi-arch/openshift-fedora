@@ -5,5 +5,5 @@
 #
 # The standard name for this image is openshift/origin-source
 #
-FROM fedora:28
+FROM fedora:29
 COPY *.repo /etc/yum.repos.d/
