@@ -18,4 +18,4 @@ popd
 pwd
 cp -f Dockerfile $WORKINGDIR_GRAFANA/Dockerfile
 cd $WORKINGDIR_GRAFANA
-docker build -t openshift/origin-grafana:latest -f Dockerfile .
+docker build -t docker.io/jeffdyoung/fedora-origin-grafana:v3.11.0 -f Dockerfile .
