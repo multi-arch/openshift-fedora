@@ -1,3 +1,0 @@
-export BRANCH=release3.10
-export REPO=https://github.com/openshift/jenkins.git
-

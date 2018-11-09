@@ -1,0 +1,3 @@
+export BRANCH=release-3.2
+export REPO=https://github.com/etcd-io/etcd.git
+

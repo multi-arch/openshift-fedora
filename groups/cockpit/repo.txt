@@ -1,0 +1,6 @@
+#dockerhub image
+#https://hub.docker.com/r/ansibleplaybookbundle/origin-ansible-service-broker/
+
+export BRANCH=master
+#export REPO=https://github.com/cockpit-project/cockpituous.git
+export REPO=https://github.com/cockpit-project/cockpit.git
