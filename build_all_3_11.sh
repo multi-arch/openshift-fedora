@@ -38,6 +38,52 @@ pushd groups/etcd
 ./build.sh
 popd
 
+pushd groups/grafana
+./build.sh
+popd
+
+pushd groups/kube-rbac-proxy
+./build.sh
+popd
+
+pushd groups/kube-state-metrics
+./build.sh
+popd
+
+pushd groups/prometheus-node-exporter
+./build.sh
+popd
+
+pushd groups/prometheus-operator
+./build.sh
+popd
+
+pushd groups/cluster-monitoring-operator
+./build.sh
+popd
+
+#WIP needs to be built with builah golang:nodejs and needs nodejs8 from scl
+#pushd groups/openshift/release-3.11/console
+#./build.sh
+#popd
+
+#WIP needs to be built with buildah
+#pushd groups/oauth-proxy
+#./build.sh
+#popd
+
+#WIP needs to be built with buildah
+#pushd groups/prometheus
+#./build.sh
+#popd
+
+#WIP 
+#pushd groups/prometheus-alertmanager
+#./build.sh
+#popd
+
+
+#WIP
 #pushd groups/jenkins
 #./build.sh
 #popd
