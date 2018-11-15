@@ -5,7 +5,8 @@
 #
 FROM openshift/origin-cli
 
-RUN INSTALL_PKGS="haproxy18 rsyslog" && \
+#fedora uses haproxy not haproxy18
+RUN INSTALL_PKGS="haproxy rsyslog" && \
     dnf install -y $INSTALL_PKGS && \
     #rpm -V $INSTALL_PKGS && \
     dnf clean all && \

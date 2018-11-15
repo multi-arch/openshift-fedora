@@ -1,6 +1,7 @@
 FROM openshift/origin-base
 
 ENV GOPATH /go
+ENV CC=gcc
 RUN mkdir -p $GOPATH/bin
 
 COPY . $GOPATH/src/github.com/jimmidyson/configmap-reload
