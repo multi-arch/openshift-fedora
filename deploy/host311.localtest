@@ -15,7 +15,7 @@ ansible_user=root
 openshift_disable_check=docker_image_availability,package_version,disk_availability,docker_storage,memory_availability
 
 openshift_enable_origin_repo=false
-openshift_ansible_allow_disabled_selinux=true
+#openshift_ansible_allow_disabled_selinux=true
 openshift_repos_enable_testing=true
 
 oreg_url='test/fedora-origin-${component}:${version}'
@@ -43,6 +43,9 @@ ansible_service_broker_install=false
 #openshift_enable_service_catalog=false
 #template_service_broker_install=False
 
+#things that don't work on other archs yet
+openshift_cluster_monitoring_operator_install=false
+openshift_console_install=false
 
 #use crio not docker
 #openshift_use_crio=true

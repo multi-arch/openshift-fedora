@@ -17,6 +17,7 @@ popd
 
 pwd
 cp -f Dockerfile $WORKINGDIR_CONFIGMAP/Dockerfile
+cp -f Makefile $WORKINGDIR_CONFIGMAP/Makefile
 cd $WORKINGDIR_CONFIGMAP
 docker build -t docker.io/jeffdyoung/configmap-reload:v3.11.0 -f Dockerfile .
 #buildah bud -t  docker.io/jeffdyoung/kube-state-metrics:v3.11.0 -f Dockerfile .

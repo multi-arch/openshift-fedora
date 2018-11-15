@@ -6,7 +6,7 @@
 #
 FROM openshift/origin-source
 
-COPY *.repo /etc/yum.repos.d/
+#COPY *.repo /etc/yum.repos.d/
 RUN INSTALL_PKGS=" \
       which tar wget hostname util-linux \
       procps socat tree findutils lsof bind-utils \
