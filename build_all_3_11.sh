@@ -6,10 +6,10 @@ pushd groups/fedorabase/
 ./build_f29.sh 
 popd
 
-
-pushd groups/origin-release/
-./build_go110.sh
-popd
+#only build if origin-release doesn't exist, or needs updating (which isn't often)
+#pushd groups/origin-release/
+#./build_go110.sh
+#popd
 
 pushd groups/openshift/release-3.11/origin
 ./build.sh
@@ -38,29 +38,32 @@ pushd groups/etcd
 ./build.sh
 popd
 
-pushd groups/grafana
-./build.sh
-popd
 
-pushd groups/kube-rbac-proxy
-./build.sh
-popd
 
-pushd groups/kube-state-metrics
-./build.sh
-popd
+### 
+#pushd groups/grafana
+#./build.sh
+#popd
 
-pushd groups/prometheus-node-exporter
-./build.sh
-popd
+#pushd groups/kube-rbac-proxy
+#./build.sh
+#popd
 
-pushd groups/prometheus-operator
-./build.sh
-popd
+#pushd groups/kube-state-metrics
+#./build.sh
+#popd
 
-pushd groups/cluster-monitoring-operator
-./build.sh
-popd
+#pushd groups/prometheus-node-exporter
+#./build.sh
+#popd
+
+#pushd groups/prometheus-operator
+#./build.sh
+#popd
+
+#pushd groups/cluster-monitoring-operator
+#./build.sh
+#popd
 
 #WIP needs to be built with builah golang:nodejs and needs nodejs8 from scl
 #pushd groups/openshift/release-3.11/console
@@ -88,6 +91,10 @@ popd
 #./build.sh
 #popd
 
+#build apache container to deliver rpms
+pushd groups/openshift/release-3.11/rpms
+./build.sh
+popd
 
 #rename origin containers for testing and push
 export PUSHPREFIX=${PUSHPREFIX:-docker.io/jeffdyoung/fedora-}
@@ -116,6 +123,8 @@ declare -a containers=(\
 "openshift/origin-docker-registry:latest" \
 "openshift/origin-etcd:latest" \
 "openshift/origin-cockpit:latest" \
+"openshift/origin-base:latest" \
+"openshift/origin-source:latest" \
 )
 
 for container in "${containers[@]}"

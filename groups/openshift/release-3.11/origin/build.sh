@@ -4,7 +4,7 @@
 #set environment varibles for build
 export arch=$(uname -m)
 export WORKINGDIR_ORIGIN=${WORKINGDIR_ORIGIN:-/tmp/origin}
-export OS_BUILD_ENV_IMAGE=${OS_BUILD_ENV_IMAGE:-docker.io/jeffdyoung/fedora-origin-release:golang-1.10-$arch}
+export OS_BUILD_ENV_IMAGE=${OS_BUILD_ENV_IMAGE:-docker.io/jeffdyoung/fedora-origin-release:golang-1.10}
 export BRANCH=${BRANCH:-release-3.11}
 export REPO=${REPO:-https://github.com/openshift/origin.git}
 #clean repo location /tmp/openshift and prune docker

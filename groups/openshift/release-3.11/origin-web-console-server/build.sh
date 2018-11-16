@@ -3,7 +3,7 @@
 
 export arch=$(uname -m)
 export WORKINGDIR_WEB=${WORKINGDIR_WEB:-/tmp/origin-web-console-server}
-export OS_BUILD_ENV_IMAGE=${OS_BUILD_ENV_IMAGE:-docker.io/jeffdyoung/fedora-origin-release:golang-1.10-$arch}
+export OS_BUILD_ENV_IMAGE=${OS_BUILD_ENV_IMAGE:-docker.io/jeffdyoung/fedora-origin-release:golang-1.10}
 export BRANCH=${BRANCH:-release-3.11}
 export REPO=${REPO:-https://github.com/openshift/origin-web-console-server.git}
 
