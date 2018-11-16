@@ -23,7 +23,7 @@ docker build . -f Dockerfile.fedora  -t docker.io/jeffdyoung/fedora-origin-relea
 popd
 
 cp -f golang-1.11/Dockerfile.f29 /tmp/origin-release/projects/origin-release/golang-1.11/Dockerfile.fedora
-cp -f golang-1.11/golang-v1.11.0-1.fc25.noarch.rpm /tmp/origin-release/projects/origin-release/golang-1.9/golang-v1.11.0-1.fc25.noarch.rpm
+cp -f golang-1.11/golang-v1.11.0-1.fc25.noarch.rpm /tmp/origin-release/projects/origin-release/golang-1.11/golang-v1.11.0-1.fc25.noarch.rpm
 pushd /tmp/origin-release/projects/origin-release/golang-1.11/
 docker build . -f Dockerfile.fedora  -t docker.io/jeffdyouny/fedora-origin-release:golang-1.11.$arch
 popd
