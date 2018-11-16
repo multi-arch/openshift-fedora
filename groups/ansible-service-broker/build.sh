@@ -12,6 +12,6 @@ pwd
 git checkout $BRANCH
 popd
 pwd
-export OS_BUILD_ENV_IMAGE=docker.io/jeffdyoung/f28-origin-release:golang-1.10-$arch
+export OS_BUILD_ENV_IMAGE=docker.io/jeffdyoung/fedora-origin-release:golang-1.10
 cd /tmp/service-catalog
 hack/env make build-images

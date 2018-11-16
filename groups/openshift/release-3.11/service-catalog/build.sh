@@ -2,7 +2,7 @@
 
 export arch=$(uname -m)
 export WORKINGDIR_CATALOG=${WORKINGDIR_CATALOG:-/tmp/service-catalog}
-export OS_BUILD_ENV_IMAGE=${OS_BUILD_ENV_IMAGE:-docker.io/jeffdyoung/fedora-origin-release:golang-1.10-$arch}
+export OS_BUILD_ENV_IMAGE=${OS_BUILD_ENV_IMAGE:-docker.io/jeffdyoung/fedora-origin-release:golang-1.10}
 export BRANCH=${BRANCH:-release-3.11}
 export REPO=${REPO:-https://github.com/openshift/service-catalog.git}
 

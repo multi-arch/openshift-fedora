@@ -1,9 +1,9 @@
-FROM docker.io/jeffdyoung/fedora-origin-release:golang-1.10-x86_64 AS builder
+FROM docker.io/jeffdyoung/fedora-origin-release:golang-1.10 AS builder
 WORKDIR /go/src/github.com/prometheus/prometheus
 COPY . .
 RUN make build
 
-FROM  docker.io/jeffdyoung/fedora-origin-base:v3.11.0.x86_64 
+FROM  docker.io/jeffdyoung/fedora-origin-base:v3.11.0
 LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
 
 ARG FROM_DIRECTORY=/go/src/github.com/prometheus/prometheus
