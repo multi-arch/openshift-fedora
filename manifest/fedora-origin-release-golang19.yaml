@@ -1,0 +1,22 @@
+image: docker.io/jeffdyoung/fedora-origin-release:golang-1.9
+manifests:
+  -
+    image: docker.io/jeffdyoung/fedora-origin-release:golang-1.9.ppc64le
+    platform:
+      architecture: ppc64le
+      os: linux
+  -
+    image: docker.io/jeffdyoung/fedora-origin-release:golang-1.9.x86_64
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: docker.io/jeffdyoung/fedora-origin-release:golang-1.9.aarch64
+    platform:
+      architecture: arm64
+      os: linux
+  -
+    image: docker.io/jeffdyoung/fedora-origin-release:golang-1.9.s390x
+    platform:
+      architecture: s390x
+      os: linux
