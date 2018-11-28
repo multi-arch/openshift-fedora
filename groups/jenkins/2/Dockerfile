@@ -1,4 +1,4 @@
-FROM docker.io/jeffdyoung/f28-origin-control-plane:v3.10
+FROM docker.io/jeffdyoung/fedora-origin-control-plane:v3.11.0
 # Jenkins image for OpenShift
 #
 # This image provides a Jenkins server, primarily intended for integration with
@@ -28,16 +28,16 @@ LABEL io.k8s.description="Jenkins is a continuous integration server" \
 # Labels consumed by Red Hat build service
 LABEL com.redhat.component="openshift-jenkins-2-container" \
       name="openshift3/jenkins-2-rhel7" \
-      version="3.10" \
+      version="3.11" \
       architecture="x86_64"
 
 # 8080 for main web interface, 50000 for slave agents
 EXPOSE 8080 50000
 RUN curl https://pkg.jenkins.io/redhat-stable/jenkins.repo -o /etc/yum.repos.d/jenkins.repo && \
     rpm --import https://pkg.jenkins.io/redhat-stable/jenkins-ci.org.key && \
-    x86_EXTRA_RPMS=$(if [ "$(uname -m)" == "x86_64" ]; then echo -n java-openjdk.i686 java-openjdk-devel.i686 ; fi) && \
+#    x86_EXTRA_RPMS=$(if [ "$(uname -m)" == "x86_64" ]; then echo -n java-openjdk.i686 java-openjdk-devel.i686 ; fi) && \
     INSTALL_PKGS="glibc-locale-source dejavu-sans-fonts rsync gettext git tar zip unzip openssl bzip2 dumb-init java-openjdk-devel java-openjdk jenkins-2.107.3-1.1" && \
-    dnf -y install $x86_EXTRA_RPMS && \
+#    dnf -y install $x86_EXTRA_RPMS && \
     dnf -y install $INSTALL_PKGS && \
     # have temporarily removed the validation for java to work around known problem fixed in fedora; jupierce and gmontero are working with
     # the requisit folks to get that addressed ... will switch back to rpm -V $INSTALL_PKGS when that occurs
@@ -73,7 +73,7 @@ RUN chmod 664 /etc/passwd && \
     unlink /usr/bin/keytool && \
     unlink /usr/bin/orbd && \
     unlink /usr/bin/pack200 && \
-    unlink /usr/bin/policytool && \
+    #unlink /usr/bin/policytool && \
     unlink /usr/bin/rmid && \
     unlink /usr/bin/rmiregistry && \
     unlink /usr/bin/servertool && \
@@ -85,7 +85,7 @@ RUN chmod 664 /etc/passwd && \
     unlink /usr/share/man/man1/keytool.1.gz && \
     unlink /usr/share/man/man1/orbd.1.gz && \
     unlink /usr/share/man/man1/pack200.1.gz && \
-    unlink /usr/share/man/man1/policytool.1.gz && \
+    #unlink /usr/share/man/man1/policytool.1.gz && \
     unlink /usr/share/man/man1/rmid.1.gz && \
     unlink /usr/share/man/man1/rmiregistry.1.gz && \
     unlink /usr/share/man/man1/servertool.1.gz && \

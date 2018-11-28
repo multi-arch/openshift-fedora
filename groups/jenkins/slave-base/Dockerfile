@@ -1,4 +1,4 @@
-FROM openshift/origin-control-plane
+FROM docker.io/jeffdyoung/fedora-origin-control-plane:v3.11.0
 
 MAINTAINER Ben Parees <bparees@redhat.com>
 
@@ -9,8 +9,8 @@ USER root
 #RUN yum install -y centos-release-scl-rh && \
 RUN x86_EXTRA_RPMS=$(if [ "$(uname -m)" == "x86_64" ]; then echo -n java-openjdk-headless.i686 ; fi) && \
     INSTALL_PKGS="bc gettext git java-openjdk-headless lsof rsync tar unzip which zip bzip2" && \
-    dnf install -y --setopt=tsflags=nodocs install $x86_EXTRA_RPMS && \
-    dnf install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
+#    dnf install -y --setopt=tsflags=nodocs $x86_EXTRA_RPMS && \
+    dnf install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     # have temporarily removed the validation for java to work around known problem fixed in fedora; jupierce and gmontero are working with
     # the requisit folks to get that addressed ... will switch back to rpm -V $INSTALL_PKGS when that occurs
     #rpm -V bc gettext git lsof rsync tar unzip which zip bzip2  && \
@@ -23,7 +23,7 @@ RUN x86_EXTRA_RPMS=$(if [ "$(uname -m)" == "x86_64" ]; then echo -n java-openjdk
     chmod -R 775 /var/lib/alternatives && \
     chmod -R 775 /usr/lib/jvm && \
     chmod 775 /usr/bin && \
-    chmod 775 /usr/lib/jvm-exports && \
+    #chmod 775 /usr/lib/jvm-exports && \
     chmod 775 /usr/share/man/man1 && \
     chmod 775 /var/lib/origin && \    
     unlink /usr/bin/java && \
@@ -31,19 +31,19 @@ RUN x86_EXTRA_RPMS=$(if [ "$(uname -m)" == "x86_64" ]; then echo -n java-openjdk
     unlink /usr/bin/keytool && \
     unlink /usr/bin/orbd && \
     unlink /usr/bin/pack200 && \
-    unlink /usr/bin/policytool && \
+    #unlink /usr/bin/policytool && \
     unlink /usr/bin/rmid && \
     unlink /usr/bin/rmiregistry && \
     unlink /usr/bin/servertool && \
     unlink /usr/bin/tnameserv && \
     unlink /usr/bin/unpack200 && \
-    unlink /usr/lib/jvm-exports/jre && \
+    #unlink /usr/lib/jvm-exports/jre && \
     unlink /usr/share/man/man1/java.1.gz && \
     unlink /usr/share/man/man1/jjs.1.gz && \
     unlink /usr/share/man/man1/keytool.1.gz && \
     unlink /usr/share/man/man1/orbd.1.gz && \
     unlink /usr/share/man/man1/pack200.1.gz && \
-    unlink /usr/share/man/man1/policytool.1.gz && \
+    #unlink /usr/share/man/man1/policytool.1.gz && \
     unlink /usr/share/man/man1/rmid.1.gz && \
     unlink /usr/share/man/man1/rmiregistry.1.gz && \
     unlink /usr/share/man/man1/servertool.1.gz && \
