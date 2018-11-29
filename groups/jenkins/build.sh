@@ -1,6 +1,6 @@
 #!/bin/bash
 #pull repo in /tmp
-JENKINS_VERSIONS="2 slave-base"
+JENKINS_VERSIONS="2 slave-base slave-maven slave-nodejs agent-nodejs-8 agent-maven-3.5"
 rm -rf /opt/jenkins
 rm -rf /opt/openshift
 source repo.txt
