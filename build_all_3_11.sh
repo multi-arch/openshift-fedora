@@ -80,9 +80,9 @@ popd
 
 
 #WIP
-#pushd groups/jenkins
-#./build.sh
-#popd
+pushd groups/jenkins
+./build.sh
+popd
 
 #build apache container to deliver rpms
 pushd groups/openshift/release-3.11/rpms
