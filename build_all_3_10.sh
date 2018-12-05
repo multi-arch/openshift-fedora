@@ -3,12 +3,7 @@
 #create a local fedora:28 w/latest updates
 
 pushd groups/fedorabase/
-./build_f28.sh 
-popd
-
-
-pushd groups/origin-release/
-./build.sh
+./build.sh 
 popd
 
 pushd groups/openshift/release-3.10/origin

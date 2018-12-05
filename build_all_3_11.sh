@@ -3,23 +3,16 @@
 #create a local fedora:29 w/latest updates
 
 pushd groups/fedorabase/
-./build_f29.sh 
+./build.sh 
 popd
-
-#only build if origin-release doesn't exist, or needs updating (which isn't often)
-#pushd groups/origin-release/
-#./build_go110.sh
-#popd
 
 pushd groups/openshift/release-3.11/origin
 ./build.sh
 popd
 
-
 pushd groups/openshift/release-3.11/image-registry
 ./build.sh
 popd
-
 
 pushd groups/openshift/release-3.11/origin-web-console-server
 ./build.sh
@@ -87,9 +80,9 @@ popd
 
 
 #WIP
-#pushd groups/jenkins
-#./build.sh
-#popd
+pushd groups/jenkins
+./build.sh
+popd
 
 #build apache container to deliver rpms
 pushd groups/openshift/release-3.11/rpms

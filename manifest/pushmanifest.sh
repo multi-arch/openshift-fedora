@@ -61,5 +61,6 @@ do
         echo "      architecture: s390x" >> $manifestdir/fedora-origin-$container.yaml
         echo "      os: linux" >> $manifestdir/fedora-origin-$container.yaml
 	
- 	./manifest-tool-linux-amd64 push from-spec $manifestdir/fedora-origin-$container.yaml	
+ 	
+	#./manifest-tool-linux-amd64 push from-spec $manifestdir/fedora-origin-$container.yaml	
 done
